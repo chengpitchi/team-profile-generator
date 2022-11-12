@@ -1,0 +1,27 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "## Your Task",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chengpitchi/team-profile-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chengpitchi/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/chengpitchi/team-profile-generator#readme", 
+  "dependencies": {
+    "inquirer": "8.2.4", 
+    "jest": "^24.9.0"
+  }
+}
