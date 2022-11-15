@@ -11,11 +11,13 @@ const engineers = new Array();
 const interns = new Array(); 
 let objManager; 
 
+// questions for manager 
 const managerInfo = [
     {
       type: 'input',
       message: 'What is the Manager\'s name?',
       name: 'name',
+      // validation for validation empty field
       validate(input) {
         if (input !== '') return true;  
         throw Error('The field cannot be empty.');
@@ -34,6 +36,7 @@ const managerInfo = [
       type: 'input',
       message: 'What is the Manager\'s email address?',
       name: 'email',
+      // validation for email format
       validate(input) {
             if (input === '') {
                 throw Error('The field cannot be empty.');
@@ -58,6 +61,7 @@ const managerInfo = [
     }
     ];
 
+// question for showning team memeber menu
 const typeQuestion = [    
     {
         type: 'list',
@@ -65,7 +69,8 @@ const typeQuestion = [
         name: 'type',
         choices: ['Engineer', 'Intern', 'No more want to add'],
     }]
-  
+
+// questions for engineer
 const engineerInfo = [
     {
         type: 'input',
@@ -113,6 +118,7 @@ const engineerInfo = [
     },
     ];
 
+// questions for intern
 const InternInfo = [
     {
         type: 'input',
@@ -160,6 +166,7 @@ const InternInfo = [
     },
     ];    
 
+// recursive function for adding team members
 function addTeamMember() {
     inquirer.prompt(typeQuestion)
         .then((response) => {
@@ -167,7 +174,7 @@ function addTeamMember() {
                     case 'Engineer':
                         inquirer.prompt(engineerInfo)
                             .then((response) => {
-                                console.log('add engineer'); 
+                                console.log('adding engineer ...'); 
                                 engineers.push(new Engineer(response.name, response.id, response.email, response.github))
                                 addTeamMember(); 
                             }); 
@@ -175,12 +182,13 @@ function addTeamMember() {
                     case 'Intern':
                         inquirer.prompt(InternInfo)
                             .then((response) => {
-                                console.log('add intern');
+                                console.log('adding intern ...');
                                 interns.push(new Intern(response.name, response.id, response.email, response.school))
                                 addTeamMember(); 
                             }); 
                         break; 
                     default: 
+                        // if no more to add, pass all the objects to the write file function
                         writeToFile(objManager, engineers, interns); 
                 }
             }
@@ -194,16 +202,18 @@ function writeToFile(objManager, engineers, interns) {
     err ? console.error(err) : console.log('Congratulations! Your team profile page is created.'))    
 }
 
-// TODO: Create a function to initialize app
+// function to initialize app
 function init() {
     console.log('Welcome to Team Profile Generator!'); 
     console.log('Please answer the following questions to generate your team profile:'); 
 
+    // function for starting with manager questions
     inquirer
     .prompt(managerInfo)
     .then((response) => {
         objManager = new Manager(response.name, response.id, response.email, response.officeNumber)
     })
+    // after answering manager questions, call the recursive function to add team members
     .then(() => {
         addTeamMember(); 
     });
