@@ -1,0 +1,63 @@
+.top-bar {
+    background-image: linear-gradient(to left, rgba(223, 23, 63, 0.902), rgba(228, 44, 139, 0.902));
+    box-shadow: 5px 5px 5px grey;
+}
+
+h1 {
+    color: white; 
+}
+
+main {
+    display: flex; 
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    margin: 2% 10%; 
+}
+
+.card {
+    margin: 1%;
+    color: white; 
+    flex: 0 0 280px; 
+    box-shadow: 5px 5px 3px 2px gray;
+    border-radius: 2px;
+}
+
+.card-divider {
+    background-image: linear-gradient(to left, rgba(82, 91, 219, 0.902), rgba(79, 61, 221, 0.902));
+}
+
+h2 {
+    padding: 0%;
+    font-size: 150%; 
+    font-weight: bold;
+}
+
+.position {
+    background-image: linear-gradient(to left, rgba(82, 91, 219, 0.902), rgba(79, 61, 221, 0.902));
+}
+
+h3 {
+    padding: 0% 5%;
+    font-size: 120%; 
+    font-weight: bold;
+}
+
+.card-section {
+    padding: 8%; 
+}
+
+p {
+    font-size: 90%;
+    padding: 5%;
+    margin: 0%;
+    color: black; 
+    border: 1px solid #e6e6e6; 
+}
+
+i {
+    margin: 0% 3%; 
+}
